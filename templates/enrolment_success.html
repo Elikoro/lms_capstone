@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Enrollment Successful{% endblock %}
+{% block content %}
+<h2>You are now enrolled in {{ course.title }} 🎉</h2>
+<p>Check your dashboard to start learning.</p>
+<a href="{% url 'course_list' %}">Back to Courses</a>
+{% endblock %}

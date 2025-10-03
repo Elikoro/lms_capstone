@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }}{% endblock %}
+{% block content %}
+<h2>{{ course.title }}</h2>
+<p>{{ course.description }}</p>
+<p>Instructor: {{ course.instructor }}</p>
+
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'enroll_course' course.id %}">
+        {% csrf_token %}
+        <button type="submit">Enroll</button>
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a> to enroll</p>
+{% endif %}
+{% endblock %}
